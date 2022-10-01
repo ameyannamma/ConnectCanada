@@ -8,8 +8,8 @@
 In order to add the project, add a new terminal and type
 *git clone **copied link** . *
 -Once the files are added, in the terminal **type** 
-<*npm init*>
+*npm init*
 This is to install all the packages
 Next type
-<*node index.js*>
+*node index.js*
 To Run the Project
