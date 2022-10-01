@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('partials/meta.ejs') %>
+    <title>Login</title>
+  </head>
+  <body>
+    <%- include('partials/nav.ejs') %>
+    <main>
+      <h2>Login</h2>
+      <form action="login" method="POST">
+        <div>
+          <label for="uname">Username:</label>
+          <input type="text" autofocus id="uname" name="uname" />
+        </div>
+        <div>
+          <label for="upass">Password:</label>
+          <input type="password" id="upass" name="upass" />
+        </div>
+        <div class="submission">
+          <input type="submit" value="Submit" />
+        </div>
+      </form>
+    </main>
+    <%- include('partials/footer.ejs') %>
+  </body>
+</html>

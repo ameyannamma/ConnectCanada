@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('partials/meta.ejs') %>
+    <title>View Concern</title>
+  </head>
+  <body class="card">
+    <%- include('partials/nav.ejs') %>
+    <main>
+      <h2>View</h2>
+      <section>
+        <div>
+          <table >
+            <tr class="viewTable">
+              <th>Name of the account holder</th>
+              <td><%= customerName %></td>
+            </tr>
+            <tr class="viewTable">
+              <th>Registered email address</th>
+              <td><%= customerEmail %></td>
+            </tr>
+            <tr class="viewTable">
+              <th>Description about the concern</th>
+              <td><%- requestDescription %></td>
+            </tr>
+          </tr>
+          <tr class="viewTable">
+            <th>Reference image uploaded</th>
+            <td><img
+              style="width: 70px"
+              src="/uploads/<%= customerUploadName %>"
+              alt="Photo"
+            /></td>
+          </tr>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <%- include('partials/footer.ejs') %>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('partials/meta.ejs') %>
+    <title>All Requests</title>
+  </head>
+  <body>
+    <%- include('partials/nav.ejs') %>
+    <h2>Dashboard</h2>
+    <main>
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>EMAIL</th>
+          <th>VIEW</th>
+          <th>EDIT</th>
+          <th>DELETE</th>
+        </tr>
+        <% for(var concern of concerns){ %>
+        <tr>
+          <td><a href="/print/<%= concern._id %>"><%= concern._id %></a></td>
+          <td><%= concern.customerName %></td>
+          <td><%= concern.customerEmail %></td>
+          <td><a href="/concern/<%= concern._id %>">View</a></td>
+          <td><a href="/edit/<%= concern._id %>">Edit</a></td>
+          <td><a href="/deletesuccess/<%= concern._id %>">Delete</a></td>
+        </tr>
+        <% } %>
+      </table>
+    </main>
+
+    <%- include('partials/footer.ejs') %>
+  </body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('partials/meta.ejs') %>
+    <title>Modify Request</title>
+  </head>
+  <body>
+    <%- include('partials/nav.ejs') %>
+    <main>
+      <h2>Edit</h2>
+      <form
+        action="/editprocess/<%= _id %>"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <div>
+          <label for="customerName">Name of the account holder</label>
+          <input
+            type="text"
+            autofocus
+            id="customerName"
+            name="customerName"
+            value="<%= customerName %>"
+          />
+        </div>
+        <div>
+          <label for="customerEmail">Registered email address</label>
+          <input
+            type="text"
+            id="customerEmail"
+            name="customerEmail"
+            value="<%= customerEmail %>"
+          />
+        </div>
+        <div>
+          <label for="requestDescription">Description about the concern</label>
+          <input
+            type="text"
+            id="requestDescription"
+            name="requestDescription"
+            value="<%= requestDescription %>"
+          />
+        </div>
+        <div>
+          <label for="customerUpload">Reference image uploaded</label>
+          <img
+            style="width: 70px"
+            src="/uploads/<%= customerUploadName %>"
+            alt="Photo"
+          />
+          <input type="file" id="customerUpload" name="customerUpload" />
+        </div>
+        <div class="submission">
+          <input type="submit" value="Submit" />
+        </div>
+      </form>
+    </main>
+
+    <%- include('partials/footer.ejs') %>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/js/tinymce/tinymce.min.js"></script>
+    <script>
+      tinymce.init({
+        selector: "#requestDescription",
+      });
+    </script>
+  </body>
+</html>

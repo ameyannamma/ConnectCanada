@@ -1,0 +1,78 @@
+<% var customerName = ''; var customerEmail = ''; var requestDescription = '';
+var customerNameError = ''; var customerEmailError = ''; var
+requestDescriptionError = ''; if(typeof(er) != 'undefined') { for(var error of
+er) { switch(error.param) { case 'customerName': customerName = error.value;
+customerNameError = error.msg; break; case 'customerEmail': customerEmail
+=error.value; customerEmailError = error.msg; break; case 'requestDescription':
+requestDescription = error.value; requestDescriptionError = error.msg; break; }
+} } %>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('partials/meta.ejs') %>
+    <title>Raise a concern</title>
+  </head>
+  <body>
+    <%- include('partials/nav.ejs') %>
+    <main>
+      <h2>New Request</h2>
+      <h4>Raise a request and we will contact you within 3 business days</h4>
+      <form action="process" method="POST" enctype="multipart/form-data">
+        <div>
+          <label for="customerName"
+            >First and last name of account holder (*)</label
+          >
+          <input
+            type="text"
+            autofocus
+            id="customerName"
+            name="customerName"
+            value="<%= customerName %>"
+          />
+          <p class="error"><%= customerNameError %></p>
+        </div>
+        <div>
+          <label for="customerEmail">Registered email address(*)</label>
+          <input
+            type="text"
+            id="customerEmail"
+            name="customerEmail"
+            value="<%= customerEmail %>"
+          />
+          <p class="error"><%= customerEmailError %></p>
+        </div>
+        <div>
+          <label for="customerUpload"
+            >Reference photo or image of the concern (*)</label
+          >
+          <input type="file" id="customerUpload" name="customerUpload" />
+        </div>
+        <div>
+          <label for="requestDescription"
+            >Provide details and describe the concern(*)</label
+          >
+          <input
+            type="text"
+            id="requestDescription"
+            name="requestDescription"
+          />
+          <p class="error"><%= requestDescriptionError %></p>
+        </div>
+
+        <div class="submission">
+          <input type="submit" value="Submit" />
+        </div>
+      </form>
+    </main>
+
+    <%- include('partials/footer.ejs') %>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/tinymce/tinymce.min.js"></script>
+    <script>
+      tinymce.init({
+        selector: "#requestDescription",
+      });
+    </script>
+  </body>
+</html>
