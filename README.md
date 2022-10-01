@@ -1,4 +1,5 @@
 # ConnectCanada
+**Project for Creating a website to raise complaint requests**
 
 ## Instructions on how to build, install, and use the project
 
