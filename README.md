@@ -14,3 +14,4 @@ This is to install all the packages
 Next type
 *node index.js*
 To Run the Project
+open the page in the mentioned portal
